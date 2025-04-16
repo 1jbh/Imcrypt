@@ -4,6 +4,10 @@
 
 <p> Basic functionality is working, pretty featureless but works as follows:
 
+Make sure to install the following:
+pip install pillow
+pip install pycryptodome
+
 Usage: 
 python main.py encrypt image.png file.txt secret.imc
 python main.py decrypt image.png secret.imc file_out.txt
