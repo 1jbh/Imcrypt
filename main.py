@@ -35,8 +35,14 @@ def decrypt(image, infile, outfile):
         ciphertext = file.read()
 
     cipher = AES.new(key, AES.MODE_CBC, iv)
-    plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size)
 
+    try:
+        plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size)
+
+    except ValueError:
+        print("Incorrect image to decrypt this file. Quitting...")
+        quit()
+        
     with open(outfile, 'wb') as file:
         file.write(plaintext)
 
